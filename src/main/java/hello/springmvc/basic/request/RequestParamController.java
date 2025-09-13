@@ -117,7 +117,7 @@ public class RequestParamController {
     }
 
     /**
-     * ModelAttribute 생략 가능
+     * 스프링은 @ModelAttribute, @RequestParam 생략시 다음과 같은 규칙을 적용한다.
      * String, int, Integer 같은 단순타입 = @RequestParam
      * 나머지 = @ModelAttribute (argument resolver 로 지정해준 타입제외)
      */

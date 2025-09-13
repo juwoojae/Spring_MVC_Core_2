@@ -40,7 +40,7 @@ public class RequestBodyStringController {
      * HttpEntity : HTTP header, body 정보를 편리하게 조회
      * HttpEntity 는 응답에도 사용할수 있다
      * HttpEntity 를 상속 받은 RequestEntity,ResponseEntity (추가기능 제공)
-     * 스프링MVC 내부에서 HTTP 메세지 바디를 읽어서 문자나 객체로 변환해서 전달해주는데, 이때 HTTP 메세지 컨버터
+     * 스프링MVC 내부에서 HTTP 메세지 바디를 읽어서 문자나 객체로 변환해서 전달해주는데(웒래는 바이트 코드), 이때 HTTP 메세지 컨버터
      * HttpMessageConverter 라는 기능을 사용한다
      */
     @PostMapping("/request-body-string-v3")
@@ -65,4 +65,5 @@ public class RequestBodyStringController {
         log.info("messageBody={}", messageBody);
         return "ok";
     }
+
 }

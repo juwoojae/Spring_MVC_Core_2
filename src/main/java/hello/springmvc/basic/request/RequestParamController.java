@@ -1,9 +1,11 @@
 package hello.springmvc.basic.request;
 
+import hello.springmvc.basic.HelloData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -100,4 +102,30 @@ public class RequestParamController {
         return "ok";  //HTTP 응답 body 에 기입됨
     }
 
+    /**
+     * @ModelAttribute
+     * 1. HelloData 객체 생성
+     * 2. 요청 파라메터의 이름으로 HelloData 객체의 프로퍼티(getter,setter)를 찾는다, 그리고 해당 프로퍼티의 setter
+     * 를 호출해서 파라미터의 값을 입력(바인딩) 한다.
+     */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v1")
+    public String modelAttributeV1(@ModelAttribute HelloData helloData){
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+        //log.info("helloData={}", helloData);
+        return "ok";
+    }
+
+    /**
+     * ModelAttribute 생략 가능
+     * String, int, Integer 같은 단순타입 = @RequestParam
+     * 나머지 = @ModelAttribute (argument resolver 로 지정해준 타입제외)
+     */
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(HelloData helloData){
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+        //log.info("helloData={}", helloData);
+        return "ok";
+    }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 1. @Controller 는 반환 값이 String 이면 뷰 이름으로 인식된다. 그래서 뷰를찾고, 뷰가 렌더링된다
- * 2. @RestController 는 반환값이 String 이면 http 메세지에 다이렉트로 입력된다
+ * 2. @RestController 는 반환값이 String 이면 http 메세지에 다이렉트로 입력된다 (반환 값으로 뷰를 찾지 않음)
  */
 @Slf4j
 @RestController

@@ -71,3 +71,12 @@ public class RequestBodyJsonController {
         return helloData;
     }
 }
+/**
+ * 주의!!
+ * HTTP 요청시에 content-type이 application/json인지 꼭! 확인해야 한다. 그래야 JSON을 처리할 수 있는
+ * HTTP 메시지 컨버터가 실행된다
+ *
+ * Spring MVC 에서 HTTP 메시지 컨버터(HttpMessageConverter) 는 HTTP 요청/응답의 body를 객체 ↔ 텍스트(JSON, XML, String 등)로 변환해주는
+ * 역할을 하는 컴포넌트 이다.
+ *
+ */
